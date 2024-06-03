@@ -13,6 +13,7 @@ body {
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 img {
   /* img(인라인 요소) 하단에 Baseline 공백을 제거 */
@@ -23,15 +24,15 @@ img {
 .inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   position: relative;
 }
 
-/* @media (max-width: 1140px) {
+@media (max-width: 1140px) {
   .inner {
     max-width: 740px;
   }
-} */
+}
 
 /*BUTTON*/
 .btn {
@@ -123,7 +124,6 @@ header {
   border-bottom: 1px solid #c8c8c8;
 }
 header > .inner {
-  max-width: 1100px;
   height: 120px;
 }
 header .logo {
@@ -281,6 +281,9 @@ header .badges .badge {
 header .nav-menu {
   display: none;
 }
+header .clone-menu {
+  display: none;
+}
 
 @media (max-width: 1120px) {
   header .inner {
@@ -289,12 +292,23 @@ header .nav-menu {
   }
 }
 @media (max-width: 740px) {
-  header::before {
-    content: '';
+  header .shadow {
     position: fixed;
     top: 70px;
     left: 0;
     width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+  }
+  header::before {
+    content: '';
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 70%;
     height: 0;
     background-color: #f6f5f0;
     transition: 0.4s;
@@ -349,12 +363,157 @@ header .nav-menu {
   }
   header .nav-menu-menu .button {
   }
+  header .nav-menu .menu-close {
+    display: none;
+  }
   header.show {
     background-color: #f6f5f0;
+  }
+  header.show .menu-menu {
+    display: none;
+  }
+  header.show .menu-close {
+    display: block;
   }
   header.show::before {
     background-color: #272727;
     height: 100vh;
+  }
+  header.show .shadow {
+    visibility: visible;
+    opacity: 1;
+  }
+  header .clone-menus {
+    /* display: block;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 70px;
+
+   "
+   ?" right: 0;
+    width: 70%;
+    padding: 0 0;
+    box-sizing: border-box;
+    transition: 0.4s;
+    transform: translate(0, -50px); */
+  }
+  header .clone-menu {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    padding: 0 0;
+    box-sizing: border-box;
+    transition: 0.4s;
+    transform: translate(0, -50px);
+    overflow-y: scroll;
+  }
+  header .clone-menu .clone-item {
+    height: 70px;
+    border-bottom: 1px solid #222;
+    line-height: 50px;
+    box-sizing: border-box;
+    font-size: 20px;
+    margin: 0 0 0 20px;
+    justify-content: center;
+    align-content: center;
+  }
+  header .clone-menu .clone-item .clone-item__name {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+    color: #f6f5f0;
+  }
+  header .clone-menu .clone-item-sub {
+    border-bottom: 1px solid #222;
+    background-color: #222;
+    line-height: 50px;
+    box-sizing: border-box;
+    font-size: 20px;
+    text-indent: 35px;
+  }
+  header .clone-menu .clone-item-sub span {
+    text-indent: 0;
+  }
+  /* header .clone-menu .clone-item-sub ul {
+    display: block;
+    top: 50px;
+    right: 0;
+    width: 100%;
+    height: 150px;
+    line-height: 50px;
+    background-color: #333;
+    font-size: 20px;
+  } */
+  /* header .clone-menu .clone-item-sub ul li {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    background-color: #333;
+    border-bottom: none;
+    font-size: 20px;
+  } */
+  header .clone-menu .clone-item-third {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    background-color: #333;
+    border-bottom: none;
+    font-size: 20px;
+  }
+  header .clone-menu .clone-item-third .clone-item__name {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #f6f5f0;
+    text-indent: 50px;
+  }
+  header .clone-menu .clone-item-sub .clone-item__name {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+    color: #f6f5f0;
+    padding: 0 0;
+    border-bottom: 1px solid #444;
+  }
+
+  header .clone-menu .clone-item__name:hover {
+    text-decoration: underline;
+  }
+  header .clone-menu .material-icons {
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    right: 20px;
+    color: #f6f5f0;
+    font-size: 30px;
+  }
+  header .clone-menu .clone-item__contents {
+  }
+  header .clone-menu .clone-item__contents .clone-contents__menu {
+  }
+  header .clone-menu .clone-item__contents .clone-contents__menu .inner {
+  }
+  header .clone-menu ul {
+  }
+  header .clone-menu ul li {
+    border-bottom: 1px solid white;
+    display: none;
+  }
+  header.show .clone-menu {
+    transform: translate(0, 0);
+    visibility: visible;
+    opacity: 1;
   }
 }
 
