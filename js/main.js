@@ -21,6 +21,39 @@ searchInputEl.addEventListener('blur', function () {
   searchInputEl.setAttribute('placeholder', '');
 });
 
+// 반응형 메뉴아이콘 제어
+const headerEl = document.querySelector('header');
+const menuEl = document.querySelector('header .nav-menu');
+menuEl.addEventListener('click', function () {
+  if (headerEl.classList.contains('show')) {
+    headerEl.classList.remove('show');
+    playScroll();
+    gsap.to(badgeEl, 0.2, {
+      opacity: 1,
+      display: 'block',
+    });
+    gsap.to(toTopEl, 0.2, {
+      x: 0,
+    });
+  } else {
+    headerEl.classList.add('show');
+    stopScroll();
+    gsap.to(badgeEl, 0.2, {
+      opacity: 0,
+      display: 'none',
+    });
+    gsap.to(toTopEl, 0.2, {
+      x: 100,
+    });
+  }
+});
+function playScroll() {
+  // documentElement is <html>
+  document.documentElement.classList.remove('fixed');
+}
+function stopScroll() {
+  document.documentElement.classList.add('fixed');
+}
 /**
  * 페이지 스크롤에 따른 요소 제어
  */
