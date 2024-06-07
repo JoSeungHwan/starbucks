@@ -2,8 +2,8 @@
 
 스타벅스 랜딩 페이지(홈페이지) 입니다.
 
-[DEMO](https://jostarbucksproject.netlify.app/) <br/>
-[DEMO+signin](https://jostarbucksproject.netlify.app/signin/)
+[DEMO](https://flamboyant-lumiere-482a1e.netlify.app/) <br/>
+[DEMO+signin](https://priceless-bhabha-83fc0d.netlify.app/)
 
 ![Starbucks](https://raw.githubusercontent.com/ParkYoungWoong/starbucks-vanilla-app/master/_assets/main_screenshot.jpg)
 
